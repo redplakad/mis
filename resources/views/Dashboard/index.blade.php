@@ -23,6 +23,9 @@
 								<!--end::Content-->
 							</div>
 							<!--end::Content wrapper-->
+							<!--begin::Footer-->
+							@include('layouts.footer')
+							<!--end::Footer-->
 						</div>
 						<!--end:::Main-->
 					</div>
