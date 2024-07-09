@@ -19,3 +19,18 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 });
+Route::get('/neraca', function(){
+    return view('dashboard.neraca');
+})->name('dashboard.neraca');
+
+Route::get('/kredit', function(){
+    return view('dashboard.kredit');
+})->name('dashboard.kredit');
+
+Route::get('/tabungan', function(){
+    return view('dashboard.tabungan');
+})->name('dashboard.tabungan');
+
+Route::get('/deposito', function(){
+    return view('dashboard.deposito');
+})->name('dashboard.deposito');

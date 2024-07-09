@@ -3208,6 +3208,11 @@
 			</div>
 			<!--end::Modal dialog-->
 		</div>
+
+		
+		<!--begin::Footer-->
+		@include('layouts.footer')
+		<!--end::Footer-->
 		<!--end::Modal - Users Search-->
 		<!--end::Modals-->
 		<!--begin::Javascript-->
