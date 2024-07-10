@@ -1,4 +1,4 @@
-<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: false, lg: true}" data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: false, lg: '300px'}">
+                <div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: false, lg: true}" data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: false, lg: '300px'}">
 					<!--begin::Header container-->
 					<div class="app-container container-xxl d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
 						<!--begin::Header mobile toggle-->
@@ -10,7 +10,7 @@
 						<!--end::Header mobile toggle-->
 						<!--begin::Logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
-							<a href="index.html">
+							<a href="{{ env('APP_URL') }}/dashboard">
 								<img alt="Logo" src="assets/logo.png" class="h-40px d-lg-none" />
 								<img alt="Logo" src="assets/logo.png" class="h-40px d-none d-lg-inline" />
 							</a>

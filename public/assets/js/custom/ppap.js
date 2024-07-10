@@ -1,12 +1,12 @@
-var element = document.getElementById('kt_charts_pencairan');
+var element = document.getElementById('kt_charts_ppap');
 
 var height = parseInt(KTUtil.css(element, 'height'));
-var lightColor = KTUtil.getCssVariableValue('--bs-white');
+var lightColor = KTUtil.getCssVariableValue('--bs-dark');
 
 var options = {
     series: [{
-        name: "Sales",
-        data: data_cair
+        name: "NPL",
+        data: data_ppap
     }],
     chart: {
         fontFamily: "inherit",
@@ -26,9 +26,9 @@ var options = {
         type: "gradient",
         gradient: {
             shadeIntensity: 1,
-            opacityFrom: .5,
+            opacityFrom: .8,
             opacityTo: 0,
-            stops: [0, 80, 100]
+            stops: [0, 60, 100]
         }
     },
     stroke: {

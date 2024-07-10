@@ -78,28 +78,28 @@
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item pb-xl-8 pb-4 mt-5 mt-lg-0">
-											<a class="menu-link" href="apps/projects/list.html">
+											<a class="menu-link" href="{{ route('dashboard.neraca') }}">
 												<span class="menu-title">Neraca</span>
 											</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item pb-xl-8 pb-4 mt-5 mt-lg-0">
-											<a class="menu-link" href="apps/user-management/users/list.html">
+											<a class="menu-link" href="{{ route('dashboard.kredit') }}">
 												<span class="menu-title">Kredit</span>
 											</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item pb-xl-8 pb-4 mt-5 mt-lg-0">
-											<a class="menu-link" href="apps/subscriptions/list.html">
+											<a class="menu-link" href="{{ route('dashboard.tabungan') }}">
 												<span class="menu-title">Tabungan</span>
 											</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item pb-xl-8 pb-4 mt-5 mt-lg-0">
-											<a class="menu-link" href="apps/file-manager/folders.html">
+											<a class="menu-link" href="{{ route('dashboard.deposito') }}">
 												<span class="menu-title">Deposito</span>
 											</a>
 										</div>
@@ -113,10 +113,6 @@
 					</div>
 					<!--end::Toolbar-->
 				@yield('contents')
-
-				<!--begin::Footer-->
-				@include('layouts.footer')
-				<!--end::Footer-->
 				</div>
 				<!--end::Wrapper-->
 			</div>
@@ -129,7 +125,7 @@
 			<i class="ki-outline ki-arrow-up"></i>
 		</div>
 		<!--end::Scrolltop-->
-		
+
 
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>

@@ -10,10 +10,10 @@ var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
 var options = {
     series: [{
         name: 'Performing Loan',
-        data: [44, 55, 57, 56, 61, 58, 55, 60]
+        data: [76, 85, 101, 98, 87, 105, 88, 90]
     }, {
         name: 'Non Performing Loan',
-        data: [76, 85, 101, 98, 87, 105, 88, 90]
+        data: [44, 55, 57, 56, 61, 58, 55, 60]
     }],
     chart: {
         fontFamily: 'inherit',
