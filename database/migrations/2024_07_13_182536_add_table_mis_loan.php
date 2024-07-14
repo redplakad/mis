@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mis_loan', function (Blueprint $table) {
             $table->id();
-            $table->char('DATAchar',8)->nullable();
+            $table->string('DATADATE',50)->nullable();
             $table->string('CAB', 3)->nullable();
             $table->string('NOMOR_REKENING', 12)->nullable();
             $table->string('NO_CIF', 10)->nullable();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,21 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard');
-Route::get('/neraca', function(){
-    return view('dashboard.neraca');
-})->name('dashboard.neraca');
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/kredit', function(){
-    return view('dashboard.kredit');
-})->name('dashboard.kredit');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/tabungan', function(){
-    return view('dashboard.tabungan');
-})->name('dashboard.tabungan');
-
-Route::get('/deposito', function(){
-    return view('dashboard.deposito');
-})->name('dashboard.deposito');
+require __DIR__.'/auth.php';
