@@ -88,7 +88,11 @@
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <a href="" onclick="submit()" class="menu-link px-5">
+                                                <button type="submit" class="menu-link px-5" style="border:0px;background:rgba(255,255,255, 1) !important;display:inline-block;">Logout</button></a>
+                                            </form>
 										</div>
 										<!--end::Menu item-->
 									</div>

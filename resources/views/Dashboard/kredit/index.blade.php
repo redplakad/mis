@@ -9,13 +9,13 @@
 				<!--begin::Content-->
 				<div id="kt_app_content" class="app-content flex-column-fluid">
 					<!--begin::Row-->
-					@include('Dashboard.index.card_kredit')
+					@include('Dashboard.component.card_kredit')
 					<!--end::Row-->
 					<!--begin::Row-->
-					@include('Dashboard.index.statistik_kredit')
+					@include('Dashboard.component.statistik_kredit')
 					<!--end::Row-->
 					<!--begin::Row-->
-					@include('Dashboard.index.segmentasi')
+					@include('Dashboard.component.segmentasi')
 					<!--end::Row-->
 
 				</div>
