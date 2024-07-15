@@ -11,4 +11,8 @@ class KreditController extends Controller
     {
         return view('dashboard.kredit');
     }
+    public function ao()
+    {
+
+    }
 }
