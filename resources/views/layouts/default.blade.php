@@ -71,7 +71,7 @@
 									<div class="app-toolbar-menu menu menu-rounded menu-gray-800 menu-state-bg flex-wrap fs-5 fw-semibold">
 										<!--begin::Menu item-->
 										<div class="menu-item pb-xl-8 pb-4 mt-5 mt-lg-0">
-											<a class="menu-link active" href="index.html">
+											<a class="menu-link active" href="{{ route('dashboard') }}">
 												<span class="menu-title">Ringkasan</span>
 											</a>
 										</div>
