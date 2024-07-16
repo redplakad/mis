@@ -38,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tabungan', [DashboardTabunganController::class, 'index'])->name('dashboard.tabungan');
     Route::get('/deposito', [DashboardDepositoController::class, 'index'])->name('dashboard.deposito');
 
+    // Route List untuk Kredit
+    Route::get('/overdue/{range}', [DashboardKreditController::class, 'overdue'])->name('overdue.show');
+    Route::post('/overdue/{range}', [DashboardKreditController::class, 'overdue'])->name('overdue.search');
+
     Route::get('/import/loan', function(){
         return view('import.loan');
     });
