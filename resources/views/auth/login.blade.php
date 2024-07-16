@@ -53,7 +53,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Wrapper-->
 						<div class="w-lg-500px p-10">
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="{{ env('APP_URL') }}/dashboard" action="{{ env('APP_URL') }}/login">
+							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="{{ env('APP_URL') }}/dashboard" action="#">
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 						            <!--begin::Logo-->
