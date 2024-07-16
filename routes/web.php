@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardNeracaController;
 use App\Http\Controllers\DashboardKreditController;
 use App\Http\Controllers\DashboardTabunganController;
 use App\Http\Controllers\DashboardDepositoController;
+use App\Http\Controllers\MisLoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/kredit', [DashboardKreditController::class, 'index'])->name('dashboard.kredit');
     Route::get('/tabungan', [DashboardTabunganController::class, 'index'])->name('dashboard.tabungan');
     Route::get('/deposito', [DashboardDepositoController::class, 'index'])->name('dashboard.deposito');
+
+    Route::get('/import/loan', function(){
+        return view('import.loan');
+    });
+    Route::post('/import/loan', [MisLoanController::class, 'import'])->name('import.loan');
 });
 
 require __DIR__.'/auth.php';

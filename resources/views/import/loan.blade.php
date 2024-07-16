@@ -31,7 +31,7 @@
     @endif
 
     <!-- Form Unggah CSV -->
-    <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('import.loan') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="file">Choose CSV file to import:</label>
