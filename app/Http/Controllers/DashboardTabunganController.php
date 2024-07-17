@@ -9,7 +9,7 @@ class DashboardTabunganController extends Controller
     //
     public function index()
     {
-        return view('dashboard.tabungan.index');
+        return view('Dashboard.tabungan.index');
     }
 
 }

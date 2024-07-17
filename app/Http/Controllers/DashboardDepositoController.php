@@ -9,7 +9,7 @@ class DashboardDepositoController extends Controller
     //
     public function index()
     {
-        return view('dashboard.deposito.index');
+        return view('Dashboard.deposito.index');
     }
 
 }
