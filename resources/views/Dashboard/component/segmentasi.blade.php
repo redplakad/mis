@@ -100,86 +100,24 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody>
+                            @for($i = 1; $i <= 5; $i++)
                             <tr>
                                 <td class="" colspan="2">
                                     <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">1 - Lancar</a>
+                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">{{ $i }} - {{ $loan->loanKolDesc[$i] }}</a>
                                 </td>
                                 <td class="pe-0" colspan="2">
                                     <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">1,687</span>
+                                        <span class="text-gray-800 fw-bold fs-6">{{ number_format($loan->loanKolCount[$i]) }}</span>
                                     </div>
                                 </td>
                                 <td class="" colspan="2">
                                     <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">45,246,633</span>
+                                        <span class="text-gray-900 fw-bold fs-6">{{ number_format($loan->loanKolSum[$i]/1000) }}</span>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">2 - Dalam Perhatian Khusus</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">145</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">3,636,332</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">3 - Kurang Lancar</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">53</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">1,100,242</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">4 - Diragukan</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">101</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">1,775,497</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">5 - Macet</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">236</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">5,023,790</span>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endfor
                             <tr>
                                 <td class="" colspan="2">
                                     <a href="#"

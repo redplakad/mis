@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
     public function __construct(MisLoanService $misLoanService)
     {
+        // inisialisasi Loan Services
         $this->misLoanService = $misLoanService;
     }
 

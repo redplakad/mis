@@ -32,10 +32,17 @@ class DashboardKreditController extends Controller
         $loan->nominal_pencairan    = number_format($this->misLoanService->sumPencairanBulanIni($datadate, $cab) / 1000);
         $loan->nominal_NPL          = number_format(($this->misLoanService->sumNPL($datadate, $cab)) / 1000);
         $loan->nominal_PPAP         = number_format(($this->misLoanService->sumPPAP($datadate, $cab)) / 1000);
+        $loan->daftar_produk        = $this->misLoanService->getDistinctProducts();
+        $loan->product_count        = $this->misLoanService->segmentProductCount($datadate, $cab);
+        $loan->product_sum          = $this->misLoanService->segmentProductSum($datadate, $cab);
 
-        $loan->daftar_produk = $this->misLoanService->getDistinctProducts();
-        $loan->product_count = $this->misLoanService->segmentProductCount($datadate, $cab);
-        $loan->product_sum = $this->misLoanService->segmentProductSum($datadate, $cab);
+        for ($i=1; $i <= 5; $i++) {
+            $loan->loanKolCount[$i] = $this->misLoanService->loanKolektibilitasCount($datadate, $cab, $i);
+            $loan->loanKolDesc[$i] = $this->misLoanService->loanDescriptionKolektibilitas($i);
+        }
+        for ($i=1; $i <= 5; $i++) {
+            $loan->loanKolSum[$i] = $this->misLoanService->loanKolektibilitasSum($datadate, $cab, $i);
+        }
 
         return view('Dashboard.kredit.index', compact('Loan25Top', 'countTunggakanHari', 'loan'));
     }

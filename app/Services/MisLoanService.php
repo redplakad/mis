@@ -117,4 +117,37 @@
 
             return $spSum;
         }
+
+        public function loanDescriptionKolektibilitas($kol)
+        {
+            $kolDesc = [
+                1 => 'Lancar',
+                2 => 'Dalam Perhatian Khusus',
+                3 => 'Kurang Lancar',
+                4 => 'Diragukan',
+                5 => 'Macet'
+            ];
+
+            return $kolDesc[$kol];
+        }
+
+        public function loanKolektibilitasCount($datadate, $cab, $kol)
+        {
+            // menghitung (sum) pokok pinjaman/bakidebet berdasarkan kolektibilitas
+            $kolektibilitasCount = $this->misLoan->where('DATADATE', $datadate)
+                                      ->where('CAB', $cab)
+                                      ->where('KODE_KOLEK', $kol)
+                                      ->count();
+            return $kolektibilitasCount;
+        }
+
+        public function loanKolektibilitasSum($datadate, $cab, $kol)
+        {
+            // menghitung (sum) pokok pinjaman/bakidebet berdasarkan kolektibilitas
+            $kolektibilitasSum = $this->misLoan->where('DATADATE', $datadate)
+                                      ->where('CAB', $cab)
+                                      ->where('KODE_KOLEK', $kol)
+                                      ->sum('POKOK_PINJAMAN');
+            return $kolektibilitasSum;
+        }
     }
