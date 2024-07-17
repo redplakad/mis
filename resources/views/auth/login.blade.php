@@ -53,12 +53,12 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Wrapper-->
 						<div class="w-lg-500px p-10">
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="{{ env('APP_URL') }}/dashboard" action="{{ route('login') }}">
+							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="{{ env('APP_URL') }}/login" action="{{ route('login') }}">
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 						            <!--begin::Logo-->
                                     <a href="index.html" class="mb-0 mb-lg-12">
-                                        <img alt="Logo" src="assets/logo.png" class="h-70px h-lg-85px" />
+                                        <img alt="Logo" src="{{ env('APP_URL') }}/assets/logo.png" class="h-70px h-lg-85px" />
                                     </a>
                                     <!--end::Logo-->
 									<!--begin::Title-->
@@ -91,7 +91,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
 									<div></div>
 									<!--begin::Link-->
-									<a href="authentication/layouts/corporate/reset-password.html" class="link-success">Forgot Password ?</a>
+									<a href="#reset-password" class="link-success">Forgot Password ?</a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
