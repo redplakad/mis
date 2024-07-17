@@ -26,7 +26,7 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Metronic by Keenthemes" />
 		<link rel="canonical" href="http://preview.keenthemes.comauthentication/layouts/corporate/sign-in.html" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="{{ env("APP_URL") }}/assets/favicon.ico" />
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
@@ -53,7 +53,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Wrapper-->
 						<div class="w-lg-500px p-10">
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" action="{{ route('login') }}">
+							<form class="form w-100" method="POST" action="{{ route('login') }}">
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 						            <!--begin::Logo-->
