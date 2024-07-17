@@ -72,7 +72,7 @@ class DashboardKreditController extends Controller
         $tunggakan = $query->paginate(10); // Menambahkan pagination dengan jumlah data per halaman 10
 
         // Lakukan sesuatu dengan $tunggakan, misalnya lempar ke view atau return sebagai JSON
-        return view('dashboard.kredit.overdue.index', compact('tunggakan', 'overdue'));
+        return view('Dashboard.kredit.overdue.index', compact('tunggakan', 'overdue'));
     }
 
 }
