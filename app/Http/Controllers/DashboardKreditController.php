@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MisLoan;
+use App\Services\MisLoanService;
 use Carbon\Carbon;
 
 class DashboardKreditController extends Controller
 {
     //
+    protected $misLoanService;
+
+    public function __construct(MisLoanService $misLoanService)
+    {
+        $this->misLoanService = $misLoanService;
+    }
+
     public function index()
     {
         $cab = '007';
@@ -16,28 +24,23 @@ class DashboardKreditController extends Controller
         $loan = new \stdClass();
 
         // mengambil 25 debitur terbesar
-        $Loan25Top = MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->orderBy('POKOK_PINJAMAN', 'desc')->take(25)->get();
+        $Loan25Top = $this->misLoanService->getTop25Loans($datadate, $cab);
 
         // Menghitung jumlah debitur yang memiliki tunggakan hari
-        $count_tunggakan_hari = [
-            'tunggakan_7h' => MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('JML_HARI_TUNGGAKAN', [1, 7])->count(),
-            'tunggakan_14h' => MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('JML_HARI_TUNGGAKAN', [8, 14])->count(),
-            'tunggakan_1b' => MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('JML_HARI_TUNGGAKAN', [15, 30])->count(),
-            'tunggakan_2b' => MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('JML_HARI_TUNGGAKAN', [31, 60])->count(),
-            'tunggakan_3b' => MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('JML_HARI_TUNGGAKAN', [60, 90])->count(),
-        ];
+        $countTunggakanHari         = $this->misLoanService->calculateOverdue($datadate, $cab);
+        $loan->nominal_bakidebet    = number_format(($this->misLoanService->sumBakiDebet($datadate, $cab)) / 1000);
+        $loan->nominal_pencairan    = number_format($this->misLoanService->sumPencairanBulanIni($datadate, $cab) / 1000);
+        $loan->nominal_NPL          = number_format(($this->misLoanService->sumNPL($datadate, $cab)) / 1000);
+        $loan->nominal_PPAP         = number_format(($this->misLoanService->sumPPAP($datadate, $cab)) / 1000);
 
-        $loan->nominal_bakidebet = number_format((MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->sum('POKOK_PINJAMAN'))/1000);
-        $loan->nominal_pencairan = number_format(MisLoan::whereRaw('LEFT(TGL_PK, 6) = ?', [Carbon::now()->format('Ym')])->sum('POKOK_PINJAMAN')/1000);
-        $loan->nominal_NPL = number_format((MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->whereBetween('KODE_KOLEK', [3, 5])->sum('POKOK_PINJAMAN'))/1000);
-        $loan->nominal_PPAP = number_format((MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->sum('CADANGAN_PPAP'))/1000);
+        $loan->daftar_produk = $this->misLoanService->getDistinctProducts();
+        $loan->product_count = $this->misLoanService->segmentProductCount($datadate, $cab);
+        $loan->product_sum = $this->misLoanService->segmentProductSum($datadate, $cab);
 
-        $loan->daftar_produk = MisLoan::select('KET_KD_PRD')->distinct()->get();
-
-
-        return view('Dashboard.kredit.index', compact('Loan25Top', 'count_tunggakan_hari', 'loan'));
+        return view('Dashboard.kredit.index', compact('Loan25Top', 'countTunggakanHari', 'loan'));
     }
 
+    // Telat bayar
     public function overdue($range, Request $request)
     {
         if($request->payment_type)
@@ -85,17 +88,34 @@ class DashboardKreditController extends Controller
     }
 
     // additional function
+
+    // Mendapatkan count untuk masing-masing produk kredit
     public function segment_product_count($datadate, $cab)
     {
         $sp_count = [];
         $product = MisLoan::select('KET_KD_PRD')->distinct()->get();
         foreach($product as $prd)
         {
-            $count = MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->where('KET_KD_PRD', $product_code)->count();
+            $count = MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->where('KET_KD_PRD', $prd->KET_KD_PRD)->count();
 
             $sp_count[str_replace(' ', '_', $prd->KET_KD_PRD)] = $count;
         }
 
         return $sp_count;
+    }
+
+    // Mendapatkan sum untuk masing-masing produk kredit
+    public function segment_product_sum($datadate, $cab)
+    {
+        $sp_sum = [];
+        $product = MisLoan::select('KET_KD_PRD')->distinct()->get();
+        foreach($product as $prd)
+        {
+            $sum = MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->where('KET_KD_PRD', $prd->KET_KD_PRD)->sum('POKOK_PINJAMAN');
+
+            $sp_sum[str_replace(' ', '_', $prd->KET_KD_PRD)] = $sum;
+        }
+
+        return $sp_sum;
     }
 }

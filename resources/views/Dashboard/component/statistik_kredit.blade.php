@@ -127,7 +127,7 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex align-items-center">
                             <!--begin::Number-->
-                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($count_tunggakan_hari['tunggakan_7h']) }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($countTunggakanHari['overdue7H']) }}</span>
                             <!--end::Number-->
 
                             <!--begin::Info-->
@@ -179,7 +179,7 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex align-items-center">
                             <!--begin::Number-->
-                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($count_tunggakan_hari['tunggakan_14h']) }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($countTunggakanHari['overdue14H']) }}</span>
                             <!--end::Number-->
 
                             <!--begin::Info-->
@@ -231,7 +231,7 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex align-items-center">
                             <!--begin::Number-->
-                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($count_tunggakan_hari['tunggakan_1b']) }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($countTunggakanHari['overdue1B']) }}</span>
                             <!--end::Number-->
 
                             <!--begin::Info-->
@@ -283,7 +283,7 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex align-items-center">
                             <!--begin::Number-->
-                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($count_tunggakan_hari['tunggakan_2b']) }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($countTunggakanHari['overdue2B']) }}</span>
                             <!--end::Number-->
 
                             <!--begin::Info-->
@@ -335,7 +335,7 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex align-items-center">
                             <!--begin::Number-->
-                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($count_tunggakan_hari['tunggakan_3b']) }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-3">{{ number_format($countTunggakanHari['overdue3B']) }}</span>
                             <!--end::Number-->
 
                             <!--begin::Info-->

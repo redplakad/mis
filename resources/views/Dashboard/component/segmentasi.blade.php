@@ -42,12 +42,12 @@
                                     </td>
                                     <td class="pe-0" colspan="2">
                                         <div class="d-flex justify-content-end">
-                                            <span class="text-gray-800 fw-bold fs-6 me-1">38</span>
+                                            <span class="text-gray-800 fw-bold fs-6 me-1">{{ number_format($loan->product_count[str_replace(' ', '_', $produk->KET_KD_PRD)]) }}</span>
                                         </div>
                                     </td>
                                     <td class="" colspan="2">
                                         <div class="d-flex justify-content-end">
-                                            <span class="text-gray-900 fw-bold fs-6 me-3"> 890,685</span>
+                                            <span class="text-gray-900 fw-bold fs-6 me-3"> {{ number_format($loan->product_sum[str_replace(' ', '_', $produk->KET_KD_PRD)]/1000) }}</span>
                                         </div>
                                     </td>
                                 </tr>
