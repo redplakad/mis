@@ -28,6 +28,14 @@ class DashboardController extends Controller
         $loan->product_count = $this->misLoanService->segmentProductCount($datadate, $cab);
         $loan->product_sum = $this->misLoanService->segmentProductSum($datadate, $cab);
 
+        for ($i=1; $i <= 5; $i++) {
+            $loan->loanKolCount[$i] = $this->misLoanService->loanKolektibilitasCount($datadate, $cab, $i);
+            $loan->loanKolDesc[$i] = $this->misLoanService->loanDescriptionKolektibilitas($i);
+        }
+        for ($i=1; $i <= 5; $i++) {
+            $loan->loanKolSum[$i] = $this->misLoanService->loanKolektibilitasSum($datadate, $cab, $i);
+        }
+
         return view('Dashboard.index', compact('loan'));
     }
 }
