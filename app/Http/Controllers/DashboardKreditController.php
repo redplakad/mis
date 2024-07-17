@@ -84,4 +84,18 @@ class DashboardKreditController extends Controller
         return view('Dashboard.kredit.overdue.index', compact('tunggakan', 'overdue'));
     }
 
+    // additional function
+    public function segment_product_count($datadate, $cab)
+    {
+        $sp_count = [];
+        $product = MisLoan::select('KET_KD_PRD')->distinct()->get();
+        foreach($product as $prd)
+        {
+            $count = MisLoan::where('DATADATE', $datadate)->where('CAB', $cab)->where('KET_KD_PRD', $product_code)->count();
+
+            $sp_count[str_replace(' ', '_', $prd->KET_KD_PRD)] = $count;
+        }
+
+        return $sp_count;
+    }
 }
