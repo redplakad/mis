@@ -32,6 +32,13 @@
 
                                         <!--begin::Toolbar-->
                                         <div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
+                                            <a href="{{ route('dashboard.kredit') }}" class="btn btn-light-success me-3">
+                                            <i class="ki-duotone ki-entrance-right fs-2"><span class="path1"></span><span class="path2"></span></i> Kembali
+                                            </a>
+                                            <button type="button" class="btn btn-light-success me-3">
+                                            <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i> Export
+                                            </button>
+
                                             <!--begin::Filter-->
                                             <button type="button" class="btn btn-light-success me-3" data-kt-menu-trigger="click"
                                                 data-kt-menu-placement="bottom-end">
@@ -135,12 +142,14 @@
                                         <thead>
                                             <tr class="fw-semibold fs-6 text-gray-800">
                                                 <th>Nama</th>
+                                                <th>Durasi</th>
                                                 <th>Kol</th>
                                                 <th>Bakidebet</th>
                                                 <th>Tunggakan</th>
                                                 <th>AO</th>
                                                 <th>Plan</th>
                                                 <th>Action</th>
+                                                <th>Result</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
@@ -148,21 +157,23 @@
                                             @foreach ($tunggakan as $deb)
                                             <tr>
                                                 <td>{{ $deb->NAMA_NASABAH }}</td>
+                                                <td>{{ $deb->JML_HARI_TUNGGAKAN }} hari</td>
                                                 <td>{{ $deb->KODE_KOLEK }}</td>
                                                 <td>{{ number_format($deb->POKOK_PINJAMAN) }}</td>
                                                 <td>{{ number_format($deb->TUNGGAKAN_POKOK+$deb->TUNGGAKAN_BUNGA) }}</td>
                                                 <td>{{ $deb->AO }}</td>
-                                                <td>Penagihan</td>
-                                                <td>Desk Collection</td>
+                                                <td><span class="badge badge-light-success fs-base">Penagihan</span></td>
+                                                <td><span class="badge badge-light-warning fs-base">Desk Collection</span></td>
+                                                <td><span class="badge badge-light-primary fs-base">Bayar</span></td>
                                                 <td>
-                                                    <a href="" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                                    <a href="" class="btn-s btn-dark"><i class="bi bi-eye"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    {{ $tunggakan->links('components.pagination') }}
                                 </div>
-                                {{ $tunggakan->links() }}
                             </div>
                         </div>
                     </div>

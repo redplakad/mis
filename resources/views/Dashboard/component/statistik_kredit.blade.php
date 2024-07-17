@@ -10,7 +10,7 @@
                     <!--begin::Heading-->
                     <div class="d-flex align-items-center mb-2">
                         <!--begin::Title-->
-                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">56,782,497</span>
+                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $loan->nominal_bakidebet }}</span>
                         <!--end::Title-->
                         <!--begin::Label-->
                         <span class="badge badge-light-primary fs-base">
@@ -47,7 +47,7 @@
                     <!--begin::Heading-->
                     <div class="d-flex align-items-center mb-2">
                         <!--begin::Title-->
-                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2"> 56,782,497</span>
+                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $loan->nominal_bakidebet }}</span>
                         <!--end::Title-->
                         <!--begin::Label-->
                         <span class="badge badge-light-danger fs-base">
