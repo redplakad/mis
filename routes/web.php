@@ -19,10 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Dashboard.index');
-});
-
 Route::get('/dashboard', function () {
     return view('Dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -46,6 +42,10 @@ Route::middleware('auth')->group(function () {
         return view('import.loan');
     });
     Route::post('/import/loan', [MisLoanController::class, 'import'])->name('import.loan');
+
+    Route::get('/', function () {
+        return view('Dashboard.index');
+    });
 });
 
 require __DIR__.'/auth.php';
