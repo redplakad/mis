@@ -26,7 +26,7 @@ class DashboardKreditController extends Controller
         ];
 
 
-        return view('dashboard.kredit.index', compact('Loan25Top', 'count_tunggakan_hari'));
+        return view('Dashboard.kredit.index', compact('Loan25Top', 'count_tunggakan_hari'));
     }
 
     public function overdue($range, Request $request)
