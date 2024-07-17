@@ -38,9 +38,9 @@
     var data_produk = [10, 30, 53, 80, 61, 82, 69, 86, 63, 75, 97, 30]
 </script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="assets/js/custom/kyd.js"></script>
-<script src="assets/js/custom/pencairan.js"></script>
-<script src="assets/js/custom/npl.js"></script>
-<script src="assets/js/custom/ppap.js"></script>
-<script src="assets/js/custom/pie_produk_kredit.js"></script>
+<script src="{{ env('APP_URL') }}/assets/js/custom/kyd.js"></script>
+<script src="{{ env('APP_URL') }}/assets/js/custom/pencairan.js"></script>
+<script src="{{ env('APP_URL') }}/assets/js/custom/npl.js"></script>
+<script src="{{ env('APP_URL') }}/assets/js/custom/ppap.js"></script>
+<script src="{{ env('APP_URL') }}/assets/js/custom/pie_produk_kredit.js"></script>
 @endpush
