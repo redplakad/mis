@@ -11,8 +11,8 @@
 						<!--begin::Logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
 							<a href="{{ env('APP_URL') }}/dashboard">
-								<img alt="Logo" src="assets/logo.png" class="h-40px d-lg-none" />
-								<img alt="Logo" src="assets/logo.png" class="h-40px d-none d-lg-inline" />
+								<img alt="Logo" src="{{ env('APP_URL') }}/assets/logo.png" class="h-40px d-lg-none" />
+								<img alt="Logo" src="{{ env('APP_URL') }}/assets/logo.png" class="h-40px d-none d-lg-inline" />
 							</a>
 						</div>
 						<!--end::Logo-->

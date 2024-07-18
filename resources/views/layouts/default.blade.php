@@ -12,17 +12,17 @@
 		<meta property="og:url" content="https://bprserang.co.id" />
 		<meta property="og:site_name" content="BPR SERANG" />
 		<link rel="canonical" href="http://preview.bprserang.co.id" />
-		<link rel="shortcut icon" href="assets/favicon.ico" />
+		<link rel="shortcut icon" href="{{ env('APP_URL') }}/assets/favicon.ico" />
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
-		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ env('APP_URL') }}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ env('APP_URL') }}/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ env('APP_URL') }}/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ env('APP_URL') }}/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 	</head>
@@ -53,7 +53,7 @@
 								<!--begin::Page title-->
 								<div class="page-title d-flex align-items-center me-3 mb-4 pt-9 pt-lg-17 mb-lg-15">
 									<div class="btn btn-icon btn-custom h-65px w-65px me-6">
-										<img alt="Logo" src="assets/media/svg/misc/layer.svg" class="h-40px" />
+										<img alt="Logo" src="{{ env('APP_URL') }}/assets/media/svg/misc/layer.svg" class="h-40px" />
 									</div>
 									<!--begin::Title-->
 									<h1 class="page-heading d-flex text-white fw-bolder fs-2 flex-column justify-content-center my-0">007 - Kantor Cabang Kragilan
@@ -130,11 +130,11 @@
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
@@ -146,15 +146,15 @@
 		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/widgets.bundle.js"></script>
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/new-target.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/widgets.bundle.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/custom/widgets.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/custom/apps/chat/chat.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/custom/utilities/modals/new-target.js"></script>
+		<script src="{{ env('APP_URL') }}/assets/js/custom/utilities/modals/users-search.js"></script>
         @stack('javascript')
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->

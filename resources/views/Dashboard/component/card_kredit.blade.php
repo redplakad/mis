@@ -37,7 +37,7 @@
                         <!--begin::Stats-->
                         <div class="d-flex align-items-center mb-1">
                             <!--begin::Amount-->
-                            <span class="fs-2hx fw-bold text-white me-2">56,934,41</span>
+                            <span class="fs-2hx fw-bold text-white me-2">{{ $loan->nominal_pencairan }}</span>
                             <!--end::Amount-->
                         </div>
                         <!--end::Stats-->
@@ -99,7 +99,7 @@
                         <!--begin::Stats-->
                         <div class="d-flex align-items-center mb-1">
                             <!--begin::Amount-->
-                            <span class="fs-2hx fw-bold text-dark me-2">56,934,41</span>
+                            <span class="fs-2hx fw-bold text-dark me-2">{{ $loan->nominal_NPL }}</span>
                             <!--end::Amount-->
                         </div>
                         <!--end::Stats-->
@@ -161,7 +161,7 @@
                         <!--begin::Stats-->
                         <div class="d-flex align-items-center mb-1">
                             <!--begin::Amount-->
-                            <span class="fs-2hx fw-bold text-dark me-2">56,934,41</span>
+                            <span class="fs-2hx fw-bold text-dark me-2">{{ $loan->nominal_PPAP }}</span>
                             <!--end::Amount-->
                         </div>
                         <!--end::Stats-->

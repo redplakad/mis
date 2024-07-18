@@ -10,25 +10,22 @@
 				<div id="kt_app_content" class="app-content flex-column-fluid">
                     <div class="row gy-5 g-xl-10"">
                         <div class="col-xxl-4 mb-5 mb-xl-10">
-                            @include('card.saving.balance')
+                            @include('card.deposit.balance')
                         </div>
                         <div class="col-xxl-4 mb-5 mb-xl-10">
-                            @include('card.saving.deposit')
+                            @include('card.deposit.new_balance')
                         </div>
                         <div class="col-xxl-4 mb-5 mb-xl-10">
-                            @include('card.saving.withdraw')
+                            @include('card.deposit.jth_tempo_balance')
                         </div>
                     </div>
 					<div class="row gy-5 g-xl-10"">
                         <div class="col-xl-6 mb-5 mb-xl-10">
-                            @include('card.saving.statisticBalance')
+                            @include('card.deposit.statisticBalance')
                         </div>
                         <div class="col-xl-6 mb-5 mb-xl-10">
-                            @include('card.saving.produk')
+                            @include('card.deposit.produk')
                         </div>
-                    </div>
-					<div class="row gy-5 g-xl-10"">
-                        @include('card.saving.kas')
                     </div>
 
 				</div>

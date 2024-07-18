@@ -35,134 +35,23 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMB PJ
-                                        Anuitas</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">38</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3"> 890,685</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMG
-                                        Anuitas</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">56</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">1,399,085</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMU PJ
-                                        Anuitas</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">3</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">227,572</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMB TA
-                                        Anuitas</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">6</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">27,860</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMG PNS
-                                        Sertif</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">179</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">8,172,064</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMG PNS
-                                        Gaji</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">86</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">2,087,065</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMG PNS
-                                        Tunda/Tukin</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">117</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">3,466,251</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">KMG
-                                        Pegawai Swasta</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6 me-1">1737</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6 me-3">40,511,912</span>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach($loan->daftar_produk as $produk)
+                                <tr>
+                                    <td class="" colspan="2">
+                                        <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">{{ $produk->KET_KD_PRD }}</a>
+                                    </td>
+                                    <td class="pe-0" colspan="2">
+                                        <div class="d-flex justify-content-end">
+                                            <span class="text-gray-800 fw-bold fs-6 me-1">{{ number_format($loan->product_count[str_replace(' ', '_', $produk->KET_KD_PRD)]) }}</span>
+                                        </div>
+                                    </td>
+                                    <td class="" colspan="2">
+                                        <div class="d-flex justify-content-end">
+                                            <span class="text-gray-900 fw-bold fs-6 me-3"> {{ number_format($loan->product_sum[str_replace(' ', '_', $produk->KET_KD_PRD)]/1000) }}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                         <!--end::Table body-->
                     </table>
@@ -211,86 +100,24 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody>
+                            @for($i = 1; $i <= 5; $i++)
                             <tr>
                                 <td class="" colspan="2">
                                     <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">1 - Lancar</a>
+                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">{{ $i }} - {{ $loan->loanKolDesc[$i] }}</a>
                                 </td>
                                 <td class="pe-0" colspan="2">
                                     <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">1,687</span>
+                                        <span class="text-gray-800 fw-bold fs-6">{{ number_format($loan->loanKolCount[$i]) }}</span>
                                     </div>
                                 </td>
                                 <td class="" colspan="2">
                                     <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">45,246,633</span>
+                                        <span class="text-gray-900 fw-bold fs-6">{{ number_format($loan->loanKolSum[$i]/1000) }}</span>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">2 - Dalam Perhatian Khusus</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">145</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">3,636,332</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">3 - Kurang Lancar</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">53</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">1,100,242</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">4 - Diragukan</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">101</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">1,775,497</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="" colspan="2">
-                                    <a href="#"
-                                        class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">5 - Macet</a>
-                                </td>
-                                <td class="pe-0" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-800 fw-bold fs-6">236</span>
-                                    </div>
-                                </td>
-                                <td class="" colspan="2">
-                                    <div class="d-flex justify-content-end">
-                                        <span class="text-gray-900 fw-bold fs-6">5,023,790</span>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endfor
                             <tr>
                                 <td class="" colspan="2">
                                     <a href="#"
