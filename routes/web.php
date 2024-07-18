@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardKreditController;
 use App\Http\Controllers\DashboardTabunganController;
 use App\Http\Controllers\DashboardDepositoController;
 use App\Http\Controllers\MisLoanController;
+use App\Http\Controllers\MisDepositController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,11 @@ Route::middleware('auth')->group(function () {
         return view('import.loan');
     });
     Route::post('/import/loan', [MisLoanController::class, 'import'])->name('import.loan');
+
+    Route::get('/import/deposit', function(){
+        return view('import.deposit');
+    });
+    Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
 
     Route::get('/', [DashboardController::class, 'index']);
 });
