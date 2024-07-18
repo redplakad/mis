@@ -105,4 +105,30 @@
             return $spSum;
         }
 
+        public function sumDepositNewAccount($datadate, $cab)
+        {
+            $cacheKey = 'sumDepositNewAccount_' . $datadate . '_' . $cab;
+
+            // Mencoba untuk mendapatkan data dari cache
+            $sumDeposito = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
+                return $this->misDeposit->whereRaw('LEFT(TGL_MULAI, 6) = ?', [Carbon::now()->format('Ym')])
+                                    ->sum('NILAI_NOMINAL');
+            });
+
+            return $sumDeposito;
+        }
+
+        public function sumDepositOverdue($datadate, $cab)
+        {
+            $cacheKey = 'sumDepositOverdue_' . $datadate . '_' . $cab;
+
+            // Mencoba untuk mendapatkan data dari cache
+            $sumDeposito = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
+                return $this->misDeposit->whereRaw('LEFT(TGL_AKHIR, 6) = ?', [Carbon::now()->format('Ym')])
+                                    ->sum('NILAI_NOMINAL');
+            });
+
+            return $sumDeposito;
+        }
+
     }

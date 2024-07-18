@@ -28,6 +28,8 @@ class DashboardDepositoController extends Controller
         $deposit->products      = $this->misDepositService->getDistinctProducts();
         $deposit->product_count = $this->misDepositService->segmentProductCount($datadate, $cab);
         $deposit->product_sum   = $this->misDepositService->segmentProductSum($datadate, $cab);
+        $deposit->sum_new_acc   = number_format($this->misDepositService->sumDepositNewAccount($datadate, $cab)/1000);
+        $deposit->sum_overdue   = number_format($this->misDepositService->sumDepositOverdue($datadate, $cab)/1000);
 
         return view('Dashboard.deposito.index', compact('deposit'));
     }

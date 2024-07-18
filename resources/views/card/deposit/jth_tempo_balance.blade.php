@@ -35,7 +35,7 @@
                 <!--begin::Stats-->
                 <div class="d-flex align-items-center mb-1">
                     <!--begin::Amount-->
-                    <span class="fs-2hx fw-bold text-dark me-2">560,934</span>
+                    <span class="fs-2hx fw-bold text-dark me-2">{{ $deposit->sum_overdue }}</span>
                     <!--end::Amount-->
                 </div>
                 <!--end::Stats-->
