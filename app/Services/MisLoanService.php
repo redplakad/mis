@@ -121,7 +121,7 @@
 
         public function getDistinctProducts()
         {
-            $cacheKey = 'distinctProducts';
+            $cacheKey = 'distinctProducts_loan';
 
             // Mencoba untuk mendapatkan data dari cache
             $distinctProducts = Cache::remember($cacheKey, now()->addHours(1), function () {
@@ -135,7 +135,7 @@
         public function segmentProductCount($datadate, $cab)
         {
             // sp for segmentasi produk
-            $cacheKey = 'segmentProductCount_' . $datadate . '_' . $cab;
+            $cacheKey = 'segmentProductCount_loan_' . $datadate . '_' . $cab;
 
             // Mencoba untuk mendapatkan data dari cache
             $spCount = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
@@ -159,7 +159,7 @@
         public function segmentProductSum($datadate, $cab)
         {
             // sp for segmentasi produk
-            $cacheKey = 'segmentProductSum_' . $datadate . '_' . $cab;
+            $cacheKey = 'segmentProductSum_loan_' . $datadate . '_' . $cab;
 
             // Mencoba untuk mendapatkan data dari cache
             $spSum = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {

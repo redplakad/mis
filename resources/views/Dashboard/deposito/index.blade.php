@@ -8,9 +8,23 @@
 			<div class="d-flex flex-column flex-column-fluid">
 				<!--begin::Content-->
 				<div id="kt_app_content" class="app-content flex-column-fluid">
+                    <div class="row gy-5 g-xl-10"">
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.deposit.balance')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.deposit.new_balance')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.deposit.jth_tempo_balance')
+                        </div>
+                    </div>
 					<div class="row gy-5 g-xl-10"">
                         <div class="col-xl-6 mb-5 mb-xl-10">
-                            @include('card.deposit.balance')
+                            @include('card.deposit.statisticBalance')
+                        </div>
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            @include('card.deposit.produk')
                         </div>
                     </div>
 
