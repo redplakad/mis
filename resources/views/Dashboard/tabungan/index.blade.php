@@ -8,15 +8,28 @@
 			<div class="d-flex flex-column flex-column-fluid">
 				<!--begin::Content-->
 				<div id="kt_app_content" class="app-content flex-column-fluid">
-					<!--begin::Row-->
-					@include('Dashboard.component.card_tabungan')
-					<!--end::Row-->
-					<!--begin::Row-->
-					@include('Dashboard.component.statistik_kredit')
-					<!--end::Row-->
-					<!--begin::Row-->
-					@include('Dashboard.component.segmentasi')
-					<!--end::Row-->
+                    <div class="row gy-5 g-xl-10"">
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.saving.balance')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.saving.deposit')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.saving.withdraw')
+                        </div>
+                    </div>
+					<div class="row gy-5 g-xl-10"">
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            @include('card.saving.statisticBalance')
+                        </div>
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            @include('card.saving.produk')
+                        </div>
+                    </div>
+					<div class="row gy-5 g-xl-10"">
+                        @include('card.saving.kas')
+                    </div>
 
 				</div>
 				<!--end::Content-->
@@ -38,9 +51,4 @@
     var data_produk = [10, 30, 53, 80, 61, 82, 69, 86, 63, 75, 97, 30]
 </script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="assets/js/custom/kyd.js"></script>
-<script src="assets/js/custom/pencairan.js"></script>
-<script src="assets/js/custom/npl.js"></script>
-<script src="assets/js/custom/ppap.js"></script>
-<script src="assets/js/custom/pie_produk_kredit.js"></script>
 @endpush

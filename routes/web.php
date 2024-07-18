@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardTabunganController;
 use App\Http\Controllers\DashboardDepositoController;
 use App\Http\Controllers\MisLoanController;
 use App\Http\Controllers\MisDepositController;
+use App\Http\Controllers\MissavingController;
+use App\Http\Controllers\MisSavingJournalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard',[DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index']);
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -48,7 +53,14 @@ Route::middleware('auth')->group(function () {
     });
     Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
 
-    Route::get('/', [DashboardController::class, 'index']);
+
+    Route::get('/import/saving', function(){
+        return view('import.saving');
+    });
+    Route::post('/import/saving', [MisSavingController::class, 'import'])->name('import.saving');
+
+    Route::post('/import/saving-journal', [MisSavingJournalController::class, 'import'])->name('import.saving_journal');
+    Route::get('/import/saving-journal', [MisSavingJournalController::class, 'index'])->name('import.saving_journal_view');
 });
 
 require __DIR__.'/auth.php';
