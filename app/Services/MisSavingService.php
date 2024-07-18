@@ -104,4 +104,66 @@
 
             return $spSum;
         }
+
+        public function getDistinctBranches()
+        {
+            $cacheKey = 'distinctBranch_Saving';
+
+            // Mencoba untuk mendapatkan data dari cache
+            $distinctProducts = Cache::remember($cacheKey, now()->addHours(1), function () {
+                return $this->misSaving->select('AO')
+                                    ->distinct()
+                                    ->get();
+            });
+
+            return $distinctProducts;
+        }
+
+        public function segmentBranchSum($datadate, $cab)
+        {
+            // sp for segmentasi produk
+            $cacheKey = 'segmentBranchSum_Saving_' . $datadate . '_' . $cab;
+
+            // Mencoba untuk mendapatkan data dari cache
+            $spSum = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
+                $spSum = [];
+                $branches = $this->getDistinctBranch();
+
+                foreach ($branches as $branch) {
+                    $sum = $this->misSaving->where('DATADATE', $datadate)
+                                            ->where('CAB_REK', $cab)
+                                            ->where('AO', $branch->AO)
+                                            ->sum('SALDO_EFEKTIF');
+                    $sbSum[str_replace(' ', '_', $branch->AO)] = $sum;
+                }
+
+                return $sbSum;
+            });
+
+            return $spSum;
+        }
+
+        public function segmentBranchCount($datadate, $cab)
+        {
+            // sp for segmentasi produk
+            $cacheKey = 'segmentBranchCount_Saving_' . $datadate . '_' . $cab;
+
+            // Mencoba untuk mendapatkan data dari cache
+            $sbCount = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
+                $sbCount = [];
+                $branches = $this->getDistinctBranch();
+
+                foreach ($branches as $branch) {
+                    $count = $this->misSaving->where('DATADATE', $datadate)
+                                            ->where('CAB_REK', $cab)
+                                            ->where('AO', $branch->AO)
+                                            ->count();
+                    $sbCount[str_replace(' ', '_', $branch->AO)] = $count;
+                }
+
+                return $sbCount;
+            });
+
+            return $sbCount;
+        }
     }

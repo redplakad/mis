@@ -29,6 +29,10 @@ class DashboardTabunganController extends Controller
         $saving->product_count = $this->misSavingService->segmentProductCount($datadate, $cab);
         $saving->product_sum   = $this->misSavingService->segmentProductSum($datadate, $cab);
 
+        $saving->branches      = $this->misSavingService->getDistinctBranches();
+        $saving->branch_account_count = $this->misSavingService->segmentBranchCount($datadate, $cab);
+        $saving->branch_balance_sum   = $this->misSavingService->segmentBranchSum($datadate, $cab);
+
         return view('Dashboard.tabungan.index', compact('saving'));
     }
 

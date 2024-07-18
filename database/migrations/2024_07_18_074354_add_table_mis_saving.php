@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('KD_PRD', 2)->nullable();
             $table->string('KET_KD_PRD', 50)->nullable();
             $table->string('GOL', 3)->nullable();
-            $table->float('SALDO_EFEKTIF', 15)->nullable();
+            $table->float('SALDO_EFEKTIF', 50)->nullable();
             $table->string('SMP_TGL_CADANG', 8)->nullable();
             $table->float('NILAI_CADANG', 15)->nullable();
             $table->float('SLD_MINIMUM', 15)->nullable();

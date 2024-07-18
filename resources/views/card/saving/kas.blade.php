@@ -19,7 +19,7 @@
 
     <!--begin::Body-->
     <div class="card-body pt-4">
-            @foreach ($saving->products as $prd)
+            @foreach ($saving->branches as $branch)
                 <!--begin::Item-->
                 <div class="d-flex flex-stack">
                     <!--begin::Section-->
@@ -38,11 +38,11 @@
                         <!--begin::Content-->
                         <div class="me-5">
                             <!--begin::Title-->
-                            <a href="#" class="text-gray-800 fw-bold text-hover-success fs-6">{{ $prd->KET_KD_PRD }}</a>
+                            <a href="#" class="text-gray-800 fw-bold text-hover-success fs-6">{{ $branch->AO }}</a>
                             <!--end::Title-->
 
                             <!--begin::Desc-->
-                            <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ number_format($saving->product_count[str_replace(" ", "_", $prd->KET_KD_PRD)]) }} Rekening</span>
+                            <span class="text-gray-500 fw-semibold fs-7 d-block text-start ps-0">{{ number_format($saving->branch_account_count[str_replace(" ", "_", $branch->AO)]) }} Rekening</span>
                             <!--end::Desc-->
                         </div>
                         <!--end::Content-->
@@ -52,7 +52,7 @@
                     <!--begin::Wrapper-->
                     <div class="text-gray-500 fw-bold fs-7 text-end">
                         <!--begin::Number-->
-                        <span class="text-gray-800 fw-bold fs-6 d-block">{{ number_format($saving->product_sum[str_replace(" ", "_", $prd->KET_KD_PRD)]/1000) }}</span>
+                        <span class="text-gray-800 fw-bold fs-6 d-block">{{ number_format($saving->branch_balance_sum[str_replace(" ", "_", $branch->AO)]/1000) }}</span>
                         <!--end::Number-->
                         Rupiah
                     </div>

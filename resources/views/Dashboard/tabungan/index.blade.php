@@ -28,7 +28,12 @@
                         </div>
                     </div>
 					<div class="row gy-5 g-xl-10"">
-                        @include('card.saving.kas')
+                        <div class="col-xl-8 mb-5 mb-xl-10">
+                            @include('card.saving.kas')
+                        </div>
+                        <div class="col-xl-4 mb-5 mb-xl-10">
+                            @include('card.saving.estimation')
+                        </div>
                     </div>
 
 				</div>
