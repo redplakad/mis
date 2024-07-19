@@ -17,7 +17,7 @@
                                     <h1 class="anchor fw-bold mb-5" id="column-rendering" data-kt-scroll-offset="50">
                                         <a href="#column-rendering"></a>
 
-                                        Debitur Telat Bayar - {{ $overdue->title }}</h1>
+                                        Debitur Telat Bayar - {{ $overdue }}</h1>
                                     <div class="d-flex flex-stack flex-wrap mb-5">
                                         <!--begin::Search-->
                                         <form method="post" action="">

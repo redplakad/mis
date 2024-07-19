@@ -241,23 +241,23 @@
                 switch ($range) {
                     case '7h':
                         $query->whereBetween('JML_HARI_TUNGGAKAN', [1, 7]);
-                        $overdueTitle = "7 Hari";
+                        $title = "7 Hari";
                         break;
                     case '14h':
                         $query->whereBetween('JML_HARI_TUNGGAKAN', [8, 14]);
-                        $overdueTitle = "14 Hari";
+                        $title = "14 Hari";
                         break;
                     case '1b':
                         $query->whereBetween('JML_HARI_TUNGGAKAN', [15, 30]);
-                        $overdueTitle = "1 Bulan";
+                        $title = "1 Bulan";
                         break;
                     case '2b':
                         $query->whereBetween('JML_HARI_TUNGGAKAN', [31, 60]);
-                        $overdueTitle = "2 Bulan";
+                        $title = "2 Bulan";
                         break;
                     case '3b':
                         $query->whereBetween('JML_HARI_TUNGGAKAN', [61, 90]);
-                        $overdueTitle = "3 Bulan";
+                        $title = "3 Bulan";
                         break;
                     default:
                         abort(404); // If range is not valid, show a 404 page
@@ -267,7 +267,7 @@
 
                 return [
                     'tunggakan' => $tunggakan,
-                    'title' => $overdueTitle
+                    'title' => $title
                 ];
             });
         }

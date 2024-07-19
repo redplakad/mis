@@ -51,7 +51,7 @@ class DashboardKreditController extends Controller
     public function overdue($range, Request $request)
     {
         if ($request->payment_type) {
-            $range = $request->payment_type;
+            return redirect()->route('overdue.show', ['range' => $request->payment_type]);
         }
 
         $result = $this->misLoanService->getOverdueLoans($range, $request);
