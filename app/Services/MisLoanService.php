@@ -2,6 +2,7 @@
 
     namespace App\Services;
 
+    use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Cache;
     use App\Models\MisLoan;
     use Carbon\Carbon;
@@ -222,5 +223,52 @@
             });
 
             return $kolektibilitasSum;
+        }
+
+        public function getOverdueLoans(string $range, Request $request)
+        {
+            $page = $request->get('page', 1);
+            $cacheKey = 'overdue_loans_' . $range . '_page_' . $page . '_' . md5(json_encode($request->all()));
+
+            return Cache::remember($cacheKey, 60, function () use ($range, $request) {
+                $query = MisLoan::query();
+
+                if ($request->has('keyword')) {
+                    $keyword = $request->keyword;
+                    $query->where('NAMA_NASABAH', 'like', '%' . $keyword . '%');
+                }
+
+                switch ($range) {
+                    case '7h':
+                        $query->whereBetween('JML_HARI_TUNGGAKAN', [1, 7]);
+                        $overdueTitle = "7 Hari";
+                        break;
+                    case '14h':
+                        $query->whereBetween('JML_HARI_TUNGGAKAN', [8, 14]);
+                        $overdueTitle = "14 Hari";
+                        break;
+                    case '1b':
+                        $query->whereBetween('JML_HARI_TUNGGAKAN', [15, 30]);
+                        $overdueTitle = "1 Bulan";
+                        break;
+                    case '2b':
+                        $query->whereBetween('JML_HARI_TUNGGAKAN', [31, 60]);
+                        $overdueTitle = "2 Bulan";
+                        break;
+                    case '3b':
+                        $query->whereBetween('JML_HARI_TUNGGAKAN', [61, 90]);
+                        $overdueTitle = "3 Bulan";
+                        break;
+                    default:
+                        abort(404); // If range is not valid, show a 404 page
+                }
+
+                $tunggakan = $query->paginate(50); // Add pagination with 50 items per page
+
+                return [
+                    'tunggakan' => $tunggakan,
+                    'title' => $overdueTitle
+                ];
+            });
         }
     }
