@@ -125,7 +125,7 @@
             $cacheKey = 'segmentBranchSum_Saving_' . $datadate . '_' . $cab;
 
             // Mencoba untuk mendapatkan data dari cache
-            $spSum = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
+            $sbSum = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
                 $sbSum = [];
                 $branches = $this->getDistinctBranches();
 
