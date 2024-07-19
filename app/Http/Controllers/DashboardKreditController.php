@@ -20,7 +20,7 @@ class DashboardKreditController extends Controller
     public function index()
     {
         $cab = '007';
-        $datadate = '2024-07-13';
+        $datadate = '2024-07-18';
         $loan = new \stdClass();
 
         // mengambil 25 debitur terbesar

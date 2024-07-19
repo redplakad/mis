@@ -8,9 +8,17 @@
 			<div class="d-flex flex-column flex-column-fluid">
 				<!--begin::Content-->
 				<div id="kt_app_content" class="app-content flex-column-fluid">
-					<!--begin::Row-->
-					@include('Dashboard.component.card_kredit')
-					<!--end::Row-->
+                    <div class="row gy-5 g-xl-10">
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.loan.newLoan')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.loan.nonPerforming')
+                        </div>
+                        <div class="col-xxl-4 mb-5 mb-xl-10">
+                            @include('card.loan.ppapLoan')
+                        </div>
+                    </div>
 					<!--begin::Row-->
 					@include('Dashboard.component.statistik_kredit')
 					<!--end::Row-->
