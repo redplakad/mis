@@ -127,7 +127,7 @@
             // Mencoba untuk mendapatkan data dari cache
             $spSum = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
                 $spSum = [];
-                $branches = $this->getDistinctBranch();
+                $branches = $this->getDistinctBranches();
 
                 foreach ($branches as $branch) {
                     $sum = $this->misSaving->where('DATADATE', $datadate)
@@ -151,7 +151,7 @@
             // Mencoba untuk mendapatkan data dari cache
             $sbCount = Cache::remember($cacheKey, now()->addHours(1), function () use ($datadate, $cab) {
                 $sbCount = [];
-                $branches = $this->getDistinctBranch();
+                $branches = $this->getDistinctBranches();
 
                 foreach ($branches as $branch) {
                     $count = $this->misSaving->where('DATADATE', $datadate)
