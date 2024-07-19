@@ -9,7 +9,7 @@ class DashboardNeracaController extends Controller
     //
     public function index()
     {
-        return view('dashboard.neraca.index');
+        return view('Dashboard.neraca.index');
     }
 
 }
