@@ -74,6 +74,20 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="separator separator-content my-14">
 									<span class="w-125px text-gray-500 fw-semibold fs-7">Authentication</span>
 								</div>
+
+								@if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        <p>{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                            @endif
+
 								<!--end::Separator-->
 								<!--begin::Input group=-->
 								<div class="fv-row mb-8">
