@@ -61,6 +61,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/import/saving-journal', [MisSavingJournalController::class, 'import'])->name('import.saving_journal');
     Route::get('/import/saving-journal', [MisSavingJournalController::class, 'index'])->name('import.saving_journal_view');
+
+    Route::get('/mis-deposit/view', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
+    Route::get('/mis-deposit/data', [DashboardDepositoController::class, 'getData'])->name('mis-deposit.data');
 });
 
 require __DIR__.'/auth.php';
