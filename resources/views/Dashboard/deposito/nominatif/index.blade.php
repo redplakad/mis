@@ -38,7 +38,7 @@
                                             <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter">
                                                 <!--begin::Header-->
                                                 <div class="px-7 py-5">
-                                                    <div class="fs-4 text-gray-900 fw-bold">Filter Options</div>
+                                                    <div class="fs-4 text-gray-900 fw-bold">Filter Data</div>
                                                 </div>
                                                 <!--end::Header-->
 
@@ -47,62 +47,22 @@
                                                 <!--end::Separator-->
 
                                                 <!--begin::Content-->
-                                                <form method="post" action="">
+                                                <form method="post" action="{{ url()->current() }}">
                                                     @csrf
                                                     <div class="px-7 py-5">
                                                         <!--begin::Input group-->
                                                         <div class="mb-10">
                                                             <!--begin::Label-->
-                                                            <label class="form-label fs-5 fw-semibold mb-3">Durasi Telat Bayar:</label>
+                                                            <label class="form-label fs-5 fw-semibold mb-3">Produk Deposito</label>
                                                             <!--end::Label-->
 
                                                             <!--begin::Options-->
                                                             <div class="d-flex flex-column flex-wrap fw-semibold" data-kt-docs-table-filter="payment_type">
-                                                                <!--begin::Option-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-                                                                    <input class="form-check-input" type="radio" name="payment_type" value="7h"
-                                                                        checked="checked">
-                                                                    <span class="form-check-label text-gray-600">
-                                                                        Telat 7 Hari
-                                                                    </span>
-                                                                </label>
-                                                                <!--end::Option-->
-
-                                                                <!--begin::Option-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-                                                                    <input class="form-check-input" type="radio" name="payment_type" value="14h">
-                                                                    <span class="form-check-label text-gray-600">
-                                                                        Telat 14 Hari
-                                                                    </span>
-                                                                </label>
-                                                                <!--end::Option-->
-
-                                                                <!--begin::Option-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
-                                                                    <input class="form-check-input" type="radio" name="payment_type" value="1b">
-                                                                    <span class="form-check-label text-gray-600">
-                                                                        Telat 1 Bulan
-                                                                    </span>
-                                                                </label>
-                                                                <!--end::Option-->
-
-                                                                <!--begin::Option-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
-                                                                    <input class="form-check-input" type="radio" name="payment_type" value="2b">
-                                                                    <span class="form-check-label text-gray-600">
-                                                                        Telat 2 Bulan
-                                                                    </span>
-                                                                </label>
-                                                                <!--end::Option-->
-
-                                                                <!--begin::Option-->
-                                                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                    <input class="form-check-input" type="radio" name="payment_type" value="3b">
-                                                                    <span class="form-check-label text-gray-600">
-                                                                        Telat 3 Bulan
-                                                                    </span>
-                                                                </label>
-                                                                <!--end::Option-->
+                                                                <select name="product" class="input-control">
+                                                                @foreach ($product as $item)
+                                                                    <option value="{{ str_replace(" ", "_", $item->KET_KD_PRD) }}">{{ $item->KET_KD_PRD }}</option>
+                                                                @endforeach
+                                                                </select>
                                                             </div>
                                                             <!--end::Options-->
                                                         </div>
@@ -131,13 +91,13 @@
                                     <table id="nominatif_deposito" class="table table-striped table-row-bordered gy-5 gs-7">
                                         <thead>
                                             <tr>
-                                                <th>DATADATE</th>
-                                                <th>CAB</th>
-                                                <th>NO_REK</th>
                                                 <th>CIF</th>
-                                                <th>NAMA_NASABAH</th>
+                                                <th>NO REK</th>
+                                                <th>NO BILYET</th>
+                                                <th>NAMA NASABAH</th>
                                                 <th>ALAMAT</th>
-                                                <th>NILAI_EFEKTIF</th>
+                                                <th>PRODUK</th>
+                                                <th>NILAI EFEKTIF</th>
                                                 <!-- Tambahkan kolom lain sesuai kebutuhan -->
                                             </tr>
                                         </thead>
@@ -164,22 +124,24 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script>
+    
     $(document).ready(function() {
         $('#nominatif_deposito').DataTable({
             processing: false,
             serverSide: false,
             ajax: "{{ route('mis-deposit.data') }}",
             columns: [
-                { data: 'DATADATE', name: 'DATADATE' },
-                { data: 'CAB', name: 'CAB' },
-                { data: 'NO_REK', name: 'NO_REK' },
                 { data: 'CIF', name: 'CIF' },
+                { data: 'NO_REK', name: 'NO_REK' },
+                { data: 'NO_BILYET', name: 'NO_BILYET' },
                 { data: 'NAMA_NASABAH', name: 'NAMA_NASABAH' },
                 { data: 'ALAMAT', name: 'ALAMAT' },
+                { data: 'KET_KD_PRD', name: 'KET_KD_PRD' },
                 { data: 'NILAI_EFEKTIF', name: 'NILAI_EFEKTIF' },
                 // Tambahkan kolom lain sesuai kebutuhan
             ]
         });
+        $('.dataTables_empty').html('<img src="{{ env("APP_URL") }}/assets/loader.gif" class="loader"/> Mohon tunggu, data sedang disiapkan.');
     });
 </script>    
 @endpush
@@ -188,8 +150,8 @@
         #nominatif_deposito_length{
             display: none;
         }
-        #keyword{
-            opacity: 0;
+        .dataTables_empty{
+            color:#007bff;
         }
 
         .dataTables_paginate {

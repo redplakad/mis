@@ -40,19 +40,24 @@ class DashboardDepositoController extends Controller
         $cab = '007';
         $datadate = '2024-07-18';
         if($request->ajax()){
-            $data = MisDeposit::where('DATADATE', $datadate)
-                            ->where('CAB', $cab)
-                            ->get();
+            $model = MisDeposit::query()->where('DATADATE', $datadate)->where('CAB', $cab);
 
-            return DataTables::of($data)
-            ->addColumn('NILAI_EFEKTIF', function ($data) {
-                return number_format($data->nilai_efektif, 2, '.', ','); // Format dengan 2 desimal, koma sebagai pemisah desimal, dan titik sebagai pemisah ribuan
-            })->make(true);
+            if($request->has('product')){
+                if(!empty($request->input('product'))){
+                    $model = $model->where('KET_KD_PRD', str_replace("_", " ", $request->input('product')));
+                }
+            }
+            return DataTables::eloquent($model)
+                            ->setFilteredRecords(50)
+                            ->addColumn('NILAI_EFEKTIF', function ($data) {
+                                return number_format($data->NILAI_EFEKTIF); // Format dengan 2 desimal, koma sebagai pemisah desimal, dan titik sebagai pemisah ribuan
+                            })->toJson();
         }
     }
 
     public function nominatif(){
-        return view('Dashboard.deposito.nominatif.index');
+        $product = $this->misDepositService->getDistinctProducts();
+        return view('Dashboard.deposito.nominatif.index', compact('product'));
     }
 
 }

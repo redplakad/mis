@@ -37,7 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/neraca', [DashboardNeracaController::class, 'index'])->name('dashboard.neraca');
     Route::get('/kredit', [DashboardKreditController::class, 'index'])->name('dashboard.kredit');
     Route::get('/tabungan', [DashboardTabunganController::class, 'index'])->name('dashboard.tabungan');
-    Route::get('/deposito', [DashboardDepositoController::class, 'index'])->name('dashboard.deposito');
 
     // Route List untuk Kredit
     Route::get('/kredit/overdue/{range}', [DashboardKreditController::class, 'overdue'])->name('overdue.show');
@@ -48,11 +47,6 @@ Route::middleware('auth')->group(function () {
     });
     Route::post('/import/loan', [MisLoanController::class, 'import'])->name('import.loan');
 
-    Route::get('/import/deposit', function(){
-        return view('import.deposit');
-    });
-    Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
-
 
     Route::get('/import/saving', function(){
         return view('import.saving');
@@ -62,8 +56,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/import/saving-journal', [MisSavingJournalController::class, 'import'])->name('import.saving_journal');
     Route::get('/import/saving-journal', [MisSavingJournalController::class, 'index'])->name('import.saving_journal_view');
 
-    Route::get('/mis-deposit/view', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
+
+    
+    Route::get('/deposito', [DashboardDepositoController::class, 'index'])->name('dashboard.deposito');
+    Route::get('/deposito/nominatif', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
+    Route::post('/deposito/nominatif', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
     Route::get('/mis-deposit/data', [DashboardDepositoController::class, 'getData'])->name('mis-deposit.data');
+
+    Route::get('/import/deposit', function(){
+        return view('import.deposit');
+    });
+    Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
 });
 
 require __DIR__.'/auth.php';
