@@ -58,6 +58,8 @@ class DashboardKreditController extends Controller
         $tunggakan = $result['tunggakan'];
         $overdue = $result['title'];
 
-        return view('Dashboard.kredit.overdue.index', compact('tunggakan', 'overdue'));
+        $breadcrumb = $this->misLoanService->breadcrumb(url()->current());
+
+        return view('Dashboard.kredit.overdue.index', compact('tunggakan', 'overdue', 'breadcrumb'));
     }
 }

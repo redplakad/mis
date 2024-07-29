@@ -7,6 +7,7 @@ use App\Models\MisDeposit;
 use App\Services\MisDepositService;
 use Carbon\Carbon;
 use DataTables;
+use App\Helpers\breadcrumb;
 
 class DashboardDepositoController extends Controller
 {
@@ -57,7 +58,8 @@ class DashboardDepositoController extends Controller
 
     public function nominatif(){
         $product = $this->misDepositService->getDistinctProducts();
-        return view('Dashboard.deposito.nominatif.index', compact('product'));
+        $breadcrumb = $this->misDepositService->breadcrumb(url()->current());
+        return view('Dashboard.deposito.nominatif.index', compact('product', 'breadcrumb'));
     }
 
 }
