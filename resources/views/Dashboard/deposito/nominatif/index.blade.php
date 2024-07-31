@@ -11,6 +11,8 @@
                     <div class="row gx-5 gx-xl-10">
                         <!--begin::Col-->
                         <div class="col-xxl-12 mb-5 mb-xl-12">
+                            {!! $breadcrumb !!}
+                            <br>
                             <!--begin::Chart widget 28-->
                             <div class="card card-flush h-xl-100">
                                 <div class="card-body">

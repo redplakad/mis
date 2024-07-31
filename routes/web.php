@@ -11,6 +11,8 @@ use App\Http\Controllers\MisDepositController;
 use App\Http\Controllers\MissavingController;
 use App\Http\Controllers\MisSavingJournalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MisMenuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +69,8 @@ Route::middleware('auth')->group(function () {
         return view('import.deposit');
     });
     Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
+
+    Route::resource('mis_menu', MisMenuController::class);
 });
 
 require __DIR__.'/auth.php';
