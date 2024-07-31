@@ -27,7 +27,7 @@
                                                         class="path2"></span></i> <input type="text" data-kt-docs-table-filter="search"
                                                     class="form-control form-control-solid w-250px ps-15" placeholder="Search Customers" id="keyword">
                                             </div>
-
+                                            <input type="hidden" name="range" value=""
                                         </form>
                                         <!--end::Search-->
 
