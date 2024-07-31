@@ -726,8 +726,8 @@
                                                         <td>
                                                             Leader Kredit </td>
                                                         <td data-order="2024-07-30T11:12:47+07:00">
-                                                            280/300
-                                                            <div class="badge badge-primary fw-bold">80%</div>
+                                                            60/100
+                                                            <div class="badge badge-warning fw-bold">60%</div>
                                                         </td>
                                                         <td>
                                                             196/280
@@ -740,7 +740,7 @@
                                                         <td>
                                                             <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                                                 <div class="symbol-label fs-3 bg-light-warning text-warning">
-                                                                        <strong>B</strong>
+                                                                        <strong>C</strong>
                                                                 </div>
                                                             </div>
                                                         </td>

@@ -45,7 +45,7 @@
 
                     <div class="modal-body">
                         <ul>
-                            @foreach(App\Helpers\MenuHelper::getMenus() as $menu)
+                            @foreach($menus as $menu)
                                 <li><a href="{{ route($menu->url) }}">{{ $menu->menu }}</a></li>
                             @endforeach
                         </ul>

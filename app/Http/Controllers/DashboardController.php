@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\MisLoan;
 use App\Services\MisLoanService;
 use Carbon\Carbon;
+use App\Helpers\menuHelper;
+use App\Models\MisMenu;
 
 class DashboardController extends Controller
 {
@@ -36,6 +38,7 @@ class DashboardController extends Controller
             $loan->loanKolSum[$i] = $this->misLoanService->loanKolektibilitasSum($datadate, $cab, $i);
         }
 
-        return view('Dashboard.index', compact('loan'));
+        $menus = MisMenu::all();
+        return view('Dashboard.index', compact('loan', 'menus'));
     }
 }
