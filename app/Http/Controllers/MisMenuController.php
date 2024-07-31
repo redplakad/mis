@@ -37,7 +37,8 @@ class MisMenuController extends Controller
 
     public function edit(MisMenu $misMenu)
     {
-        return view('mis_menu.edit', compact('misMenu'));
+        $menus = Mismenu::where('parent', null);
+        return view('sysadmin.menus.edit', compact('misMenu', 'menus'));
     }
 
     public function update(Request $request, MisMenu $misMenu)

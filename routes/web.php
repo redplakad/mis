@@ -12,6 +12,7 @@ use App\Http\Controllers\MissavingController;
 use App\Http\Controllers\MisSavingJournalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MisMenuController;
+use App\Http\Controllers\Monitoring\AoMonitoringController;
 
 
 /*
@@ -59,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/import/saving-journal', [MisSavingJournalController::class, 'index'])->name('import.saving_journal_view');
 
 
-    
+
     Route::get('/deposito', [DashboardDepositoController::class, 'index'])->name('dashboard.deposito');
     Route::get('/deposito/nominatif', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
     Route::post('/deposito/nominatif', [DashboardDepositoController::class, 'nominatif'])->name('mis-deposit.nominatif');
@@ -71,6 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/import/deposit', [MisDepositController::class, 'import'])->name('import.deposit');
 
     Route::resource('mis_menu', MisMenuController::class);
+
+    Route::get('/monitoring/ao', [AoMonitoringController::class, 'index'])->name('monitoring.ao');
 });
 
 require __DIR__.'/auth.php';

@@ -349,13 +349,13 @@ class ComposerStaticInita349383c5500fe749471b3bfb83df832
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
+            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/ignition/src',
-            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
+            1 => __DIR__ . '/..' . '/spatie/ignition/src',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -629,6 +629,7 @@ class ComposerStaticInita349383c5500fe749471b3bfb83df832
         'App\\Http\\Controllers\\KreditController' => __DIR__ . '/../..' . '/app/Http/Controllers/KreditController.php',
         'App\\Http\\Controllers\\MisDepositController' => __DIR__ . '/../..' . '/app/Http/Controllers/MisDepositController.php',
         'App\\Http\\Controllers\\MisLoanController' => __DIR__ . '/../..' . '/app/Http/Controllers/MisLoanController.php',
+        'App\\Http\\Controllers\\MisMenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/MisMenuController.php',
         'App\\Http\\Controllers\\MisSavingController' => __DIR__ . '/../..' . '/app/Http/Controllers/MisSavingController.php',
         'App\\Http\\Controllers\\MisSavingJournalController' => __DIR__ . '/../..' . '/app/Http/Controllers/MisSavingJournalController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
@@ -650,6 +651,7 @@ class ComposerStaticInita349383c5500fe749471b3bfb83df832
         'App\\Imports\\MisSavingJournalImport' => __DIR__ . '/../..' . '/app/Imports/MisSavingJournalImport.php',
         'App\\Models\\MisDeposit' => __DIR__ . '/../..' . '/app/Models/MisDeposit.php',
         'App\\Models\\MisLoan' => __DIR__ . '/../..' . '/app/Models/MisLoan.php',
+        'App\\Models\\MisMenu' => __DIR__ . '/../..' . '/app/Models/MisMenu.php',
         'App\\Models\\MisSaving' => __DIR__ . '/../..' . '/app/Models/MisSaving.php',
         'App\\Models\\MisSavingJournal' => __DIR__ . '/../..' . '/app/Models/MisSavingJournal.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

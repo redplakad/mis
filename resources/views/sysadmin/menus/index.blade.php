@@ -12,7 +12,7 @@
                         <!--begin::Col-->
                         <div class="col-xxl-12 mb-5 mb-xl-12">
 
-                            
+
                             <br>
                             <!--begin::Chart widget 28-->
                             <div class="card card-flush h-xl-100">
@@ -64,14 +64,29 @@
                                                 <td>{{ $menu->category }}</td>
                                                 <td>{{ $menu->parent }}</td>
                                                 <td>{{ $menu->role }}</td>
-                                                <td>
-                                                    <a href="" class="btn btn-dark"><i class="bi bi-pencil"></i></a>
-                                                    <a href="" class="btn btn-dark"><i class="bi bi-eye"></i></a>
-                                                    <form method="POST" action="" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-dark"><i class="bi bi-trash"></i></button>
-                                                    </form>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                        Actions
+                                                        <i class="ki-outline ki-down fs-5 ms-1"></i>
+                                                    </a>
+
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true" data-popper-placement="top-end">
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="{{ route('mis_menu.edit', $menu->id) }}" class="menu-link px-3">
+                                                                Edit
+                                                            </a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+                                                        <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">
+                                                                Delete
+                                                            </a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach
